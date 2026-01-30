@@ -19,55 +19,42 @@ public class UsuarioController : ControllerBase
 
     
     [HttpGet]
-    public async Task<ActionResult<List<UsuarioModel>>> GetAll()
+    public async Task<ActionResult<List<UsuarioModel>>> Listar()
     {
-        var usuarios = await _usuarioService.GetAll();
+        var usuarios = await _usuarioService.Listar();
         return Ok(usuarios);
     }
 
     
     [HttpGet("{id}")]
-    public async Task<ActionResult<UsuarioModel>> FindById(int id)
+    public async Task<ActionResult<UsuarioModel>> BuscarPorId(int id)
     {
-        var usuario = await _usuarioService.FindById(id);
-        if (usuario == null) {
-            return NotFound("Usuário não encontrado!");
-        }
+        var usuario = await _usuarioService.BuscarPorId(id);
         return Ok(usuario);
     }
 
     
     [HttpPost]
-    public async Task<ActionResult<UsuarioModel>> Create(UsuarioRequestDto request)
+    public async Task<ActionResult<UsuarioModel>> Criar(UsuarioRequestDto request)
     {
-        var usuario = await _usuarioService.Create(request);
+        var usuario = await _usuarioService.Criar(request);
         return Created("api/usuarios", usuario);
     }
 
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<UsuarioModel>> Update(int id, UpdateUsuarioRequestDto request)
+    public async Task<ActionResult<UsuarioModel>> Atualizar(int id, UpdateUsuarioRequestDto request)
     {
-        var usuario = await _usuarioService.FindById(id);
-        
-        if (usuario == null)
-        {
-            return NotFound("Usuário não encontrado!");
-        }
-        var usuarioUpdate = await _usuarioService.Update(request, id);
-        return Ok(usuarioUpdate);
+        var usuario = await _usuarioService.BuscarPorId(id);
+        return Ok(usuario);
     }
 
     
     [HttpDelete("{id}")]
-    public async Task<ActionResult> Delete(int id)
+    public async Task<ActionResult> Deletar(int id)
     {
-        var usuario = await _usuarioService.FindById(id);
-        if (usuario == null)
-        {
-            return NotFound("Usuário não encontrado!");
-        }
-        await _usuarioService.Delete(id);
+        
+        await _usuarioService.Deletar(id);
         return NoContent();
     }
     

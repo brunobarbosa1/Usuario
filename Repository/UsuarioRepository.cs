@@ -16,19 +16,19 @@ public class UsuarioRepository : IUsuarioRepository
     }
     
     
-    public async Task<UsuarioModel?> GetByIdAsync(int id)
+    public async Task<UsuarioModel?> BuscarPorIdAsync(int id)
     {
         return await _context.Usuarios.FindAsync(id);
     }
 
     
-    public async Task<List<UsuarioModel>> GetAllAsync()
+    public async Task<List<UsuarioModel>> ListarAsync()
     {
        return await _context.Usuarios.ToListAsync();
     }
 
     
-    public async Task AddAsync(UsuarioModel usuario)
+    public async Task AdicionarAsync(UsuarioModel usuario)
     {
         
         await _context.Usuarios.AddAsync(usuario);
@@ -36,15 +36,14 @@ public class UsuarioRepository : IUsuarioRepository
     }
 
     
-    public async Task<UsuarioModel> UpdateAsync(UsuarioModel usuario)
+    public async Task<UsuarioModel> SalvarAsync(UsuarioModel usuario)
     {
-        _context.Usuarios.Update(usuario);
         await _context.SaveChangesAsync();
         return usuario;
     }
 
     
-    public async Task DeleteAsync(UsuarioModel usuario)
+    public async Task DeletarAsync(UsuarioModel usuario)
     {
         _context.Usuarios.Remove(usuario);
         await _context.SaveChangesAsync();

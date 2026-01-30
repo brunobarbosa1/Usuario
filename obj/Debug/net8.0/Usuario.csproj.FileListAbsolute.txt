@@ -109,3 +109,6 @@
 /Users/brunobarbosa/Downloads/Usuario/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/brunobarbosa/Downloads/Usuario/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/brunobarbosa/Downloads/Usuario/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/brunobarbosa/Downloads/Usuario/obj/Debug/net8.0/Usuario.sourcelink.json
+/Users/brunobarbosa/Downloads/Usuario/bin/Debug/net8.0/Usuario.Application/obj/project.assets.json
+/Users/brunobarbosa/Downloads/Usuario/bin/Debug/net8.0/Usuario.Application/obj/Usuario.Application.csproj.nuget.dgspec.json

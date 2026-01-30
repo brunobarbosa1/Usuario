@@ -5,9 +5,9 @@ namespace Usuario.Services;
 
 public interface IUsuarioService
 {
-    Task<List<UsuarioModel>> GetAll();
-    Task<UsuarioModel?> FindById(int idUsuario);
-    Task<UsuarioModel> Create(UsuarioRequestDto request);
-    Task<UsuarioModel> Update(UpdateUsuarioRequestDto request, int idUsuario);
-    Task Delete(int idUsuario);
+    Task<List<UsuarioModel>> Listar();
+    Task<UsuarioModel> BuscarPorId(int idUsuario);
+    Task<UsuarioModel> Criar(UsuarioRequestDto request);
+    Task<UsuarioModel> Atualizar(UpdateUsuarioRequestDto request, int idUsuario);
+    Task Deletar(int idUsuario);
 }

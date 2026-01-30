@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Usuario.Data;
+using Usuario.Exceptions;
 using Usuario.Repository;
 using Usuario.Services;
 
@@ -28,9 +29,7 @@ if (app.Environment.IsDevelopment())
     app.MapControllers();
 }
 app.UseHttpsRedirection();
-app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
+app.Run();
